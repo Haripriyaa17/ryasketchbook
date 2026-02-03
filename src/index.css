@@ -1,13 +1,228 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Google Fonts - Asten Script */
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+    cursor: auto;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-neutral-50 via-brand-background to-brand-accent-light min-h-screen overflow-x-hidden;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+  }
+
+  .font-script {
+    font-family: "Dancing Script", "Asten Script", cursive;
+  }
+
+  p {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  a,
+  button,
+  .cursor-pointer {
+    cursor: pointer;
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-[1200px] px-6 sm:px-8 lg:px-10;
+  }
+
+  .section-padding {
+    @apply py-16 sm:py-20;
+  }
+
+  .product-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10;
+  }
+
+  .product-card {
+    @apply bg-white rounded-2xl shadow-md overflow-hidden border border-brand-primary/10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-base font-semibold tracking-wide transition-all duration-300;
+    @apply bg-brand-primary text-white border-2 border-brand-primary;
+  }
+
+  .btn-primary:hover {
+    @apply bg-transparent text-brand-primary shadow-lg;
+  }
+
+  /* Realistic page shadow */
+  .page-shadow {
+    box-shadow:
+      0 10px 40px rgba(21, 19, 97, 0.15),
+      0 2px 8px rgba(21, 19, 97, 0.1),
+      inset -2px 0 4px rgba(21, 19, 97, 0.1);
+  }
+
+  .book-spine {
+    background: linear-gradient(
+      to right,
+      rgba(21, 19, 97, 0.2) 0%,
+      rgba(21, 19, 97, 0.08) 3%,
+      transparent 10%
+    );
+  }
+
+  .transition-smooth {
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-primary via-brand-accent to-brand-accent-dark bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+}
+
+@layer utilities {
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .perspective-2000 {
+    perspective: 2000px;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f9ff;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #151361, #a7ccff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0d0a3d, #8ab4f0);
+}
+
+/* Selection color */
+::selection {
+  background-color: #a7ccff;
+  color: #151361;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Aesthetic hover animations */
+.aesthetic-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aesthetic-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow:
+    0 20px 40px rgba(21, 19, 97, 0.2),
+    0 0 20px rgba(167, 204, 255, 0.4);
+}
+
+/* Cute floating animation */
+@keyframes float-cute {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(-1deg);
+  }
+  75% {
+    transform: translateY(-12px) rotate(0.5deg);
+  }
+}
+
+.float-cute {
+  animation: float-cute 4s ease-in-out infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(167, 204, 255, 0.3),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(167, 204, 255, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(167, 204, 255, 0.8);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
 }
