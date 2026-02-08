@@ -29,6 +29,7 @@ const Header = () => {
           loop
           muted
           playsInline
+          preload="auto"
           className="w-full h-full object-contain bg-brand-cream-dark"
           poster={portfolioData.hero.videoPlaceholder}
         >
