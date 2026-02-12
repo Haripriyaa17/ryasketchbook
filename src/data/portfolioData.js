@@ -5,14 +5,14 @@ export const portfolioData = {
   // Header / Hero Section
   hero: {
     videoUrl: "/images/videos/intro.mp4", // Add your hero video here
-    videoPlaceholder: "/images/hero-placeholder.jpg",
+    //videoPlaceholder: "/images/hero-placeholder.jpg",
   },
 
   // About Section
   about: {
     title: "about me.",
     videoUrl: "/images/videos/about.mp4", // Auto-playing video
-    videoPoster: "/images/about-poster.jpg",
+    //videoPoster: "/images/about-poster.jpg",
   },
 
   // Crochet Products
