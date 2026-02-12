@@ -28,27 +28,24 @@ const OrderPage = () => {
     setLoading(true);
 
     try {
-      const { data, error } = await supabase
-        .from("orders")
-        .insert([
-          {
-            customer_name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            product_id:
-              formData.product === "custom" ? "custom" : formData.product,
-            product_name:
-              formData.product === "custom"
-                ? "Custom Order"
-                : allProducts.find((p) => p.id.toString() === formData.product)
-                    ?.name,
-            custom_description: formData.customDescription,
-            course_details: formData.courseDetails,
-            status: "pending",
-            created_at: new Date().toISOString(),
-          },
-        ])
-        .select();
+      const { data, error } = await supabase.from("orders").insert([
+        {
+          customer_name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          product_id:
+            formData.product === "custom" ? "custom" : formData.product,
+          product_name:
+            formData.product === "custom"
+              ? "Custom Order"
+              : allProducts.find((p) => p.id.toString() === formData.product)
+                  ?.name,
+          custom_description: formData.customDescription,
+          course_details: formData.courseDetails,
+          status: "pending",
+          created_at: new Date().toISOString(),
+        },
+      ]);
 
       if (error) throw error;
 
